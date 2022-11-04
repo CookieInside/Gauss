@@ -1,0 +1,23 @@
+.matrix, .matrixth, .matrixtr, .matrixtd{
+    border: 1px solid;
+    background-color: #1c1c1c;
+    color: #ea7815;
+}
+html{
+    background-color: #1b1b1b;
+    color: aliceblue;
+}
+.btn{
+    background-color: #ff9000;
+    border-radius: 5px;
+    border: 0px;
+}
+#iBoxes{
+    border: 3px;
+    border-color: #1b1b1b;
+}
+#amountOfFunctions, .functionInformation{
+    background-color: #282828;
+    border: 0px;
+    color: aliceblue;
+}
