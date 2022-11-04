@@ -23,7 +23,7 @@ function genIboxCreationHTML(amount){
     for(i = 1; i < amount; i++){
         let sqr = amount - i;
         let chr = alphabet[i-1];
-        functionPart += '<input class="functionInformtion" type="number" value="0" style="width: 40px; border: 0px;"> &times ' + chr + " + " /*+ ' &times (<input class="functionInformtion" type="number" value="0" style="width: 40px; border: 0px;">)<sup>' + sqr + '</sup>'*/;
+        functionPart += '<input class="functionInformtion" type="number" value="0" style="width: 40px; border: 0px;"> &times ' + chr + " + ";
     }
     functionPart += '<input class="functionInformtion" type="number" value="0" style="width: 40px; border: 0px;"> &times ' + alphabet[amount - 1] + ' = <input class="functionInformtion" type="number" value="0" style="width: 40px; border: 0px;">';
     functionPart += "</div>"
@@ -89,7 +89,7 @@ function loadData(){
     let idx = 0;
     for(i = 0; i < twoDimArr.length; i++){
         for(j = 0; j < pubFunctionAmount-1; j++){
-            twoDimArr[i][j] = allInputarr[idx]/* * (allInputarr[idx + 1] ** (pubFunctionAmount - 1 - j))*/;
+            twoDimArr[i][j] = allInputarr[idx];
             idx = idx + 1;
         }
         twoDimArr[i][pubFunctionAmount - 1] = allInputarr[idx];
@@ -108,7 +108,6 @@ function combineToTriangle(){
         }
     }
     console.log("Tirangle Form Finished");
-    //matrix.createDiagonalOne();
     for(let outterIterator = 1; outterIterator < matrix.horiSize - 1; outterIterator++){
         for(let innerIterator = outterIterator - 1; innerIterator >= 0; innerIterator--){
             matrix.combineFunction(outterIterator, innerIterator, -matrix.getValue(outterIterator, innerIterator));
@@ -165,15 +164,6 @@ class Matrix {
             for(let someIndexName = 0; someIndexName < this.horiSize; someIndexName++){
                 this.setValue(someIndexName, y, this.getValue(someIndexName, y) / tmp);
             }
-        }
-    }
-    createDiagonalOne(){
-        for(let idx1 = 0; idx1 < this.horiSize - 1; idx1++){
-            let spotlightValue = this.getValue(idx1, idx1);
-            for(let idx2 = 0; idx2 < this.horiSize; idx2++){
-                this.setValue(idx2, idx1, (this.getValue(idx2, idx1) / spotlightValue));
-            }
-            generateTableHTML();
         }
     }
 }
